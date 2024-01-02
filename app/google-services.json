@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "115331295849",
+    "project_id": "oncoassist-65d81",
+    "storage_bucket": "oncoassist-65d81.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:115331295849:android:ed713655c6fb92addf90f8",
+        "android_client_info": {
+          "package_name": "com.example.oncoassist"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbDGJdgKT1mi0O0lLiozY7y-1I8vg5NcI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
