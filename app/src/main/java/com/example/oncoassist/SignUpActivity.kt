@@ -18,6 +18,7 @@ data class User(
 )
 
 class SignUpActivity : AppCompatActivity() {
+
     private lateinit var suser: EditText
     private lateinit var semail: EditText
     private lateinit var spassword: EditText
@@ -39,6 +40,7 @@ class SignUpActivity : AppCompatActivity() {
         sbutton.setOnClickListener {
             saveUserData()
             Toast.makeText(this, "Sign-up button clicked", Toast.LENGTH_SHORT).show()
+
         }
     }
 
@@ -72,7 +74,7 @@ class SignUpActivity : AppCompatActivity() {
                 spassword.text.clear()
 
                 // Start the SignInActivity after successful signup
-                startActivity(Intent(this, SignInActivity::class.java))
+                startActivity(Intent(this,MainActivity::class.java))
                 finish()
             }
             .addOnFailureListener { err ->
