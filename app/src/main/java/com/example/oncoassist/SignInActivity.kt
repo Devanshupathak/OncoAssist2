@@ -1,3 +1,5 @@
+package com.example.oncoassist
+
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -8,9 +10,10 @@ import com.example.oncoassist.SignUpActivity
 import com.example.oncoassist.databinding.ActivitySignInBinding
 import com.google.firebase.auth.FirebaseAuth
 
-class SignInActivity : AppCompatActivity() {
+class SignInActivity: AppCompatActivity() {
     private var binding: ActivitySignInBinding? = null
     private val auth = FirebaseAuth.getInstance()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +43,7 @@ class SignInActivity : AppCompatActivity() {
             return
         }
 
-        showProgressBar()
+
 
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->   // error line while login
@@ -51,15 +54,9 @@ class SignInActivity : AppCompatActivity() {
                     Toast.makeText(this, "Oops! Something went wrong", Toast.LENGTH_SHORT).show()
                 }
 
-                hideProgressBar()
+
             }
     }
 
-    private fun showProgressBar() {
-        // Implement your progress bar logic here
-    }
 
-    private fun hideProgressBar() {
-        // Implement your hiding progress bar logic here
-    }
 }
