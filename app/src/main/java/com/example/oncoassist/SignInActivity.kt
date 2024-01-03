@@ -12,52 +12,47 @@ import com.example.oncoassist.databinding.ActivitySignInBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class SignInActivity: AppCompatActivity() {
-    private var binding: ActivitySignInBinding? = null
-    private val auth = FirebaseAuth.getInstance()
+    private lateinit var binding: ActivitySignInBinding
+    private val firebaseAuth = FirebaseAuth.getInstance()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
-        setContentView(binding?.root)
+        setContentView(binding.root)
 
-        binding?.tvRegister?.setOnClickListener {
-            startActivity(Intent(this, SignUpActivity::class.java))
-            finish()
+        binding.tvRegister.setOnClickListener{
+            val intent = Intent(this,SignUpActivity::class.java)
+            startActivity(intent)
         }
 
-        binding?.tvForgotPassword?.setOnClickListener {
-            startActivity(Intent(this, ForgetPasswordActivity::class.java))
-        }
+        binding.btnSignIn.setOnClickListener {
+            val email = binding.etSinInEmail.text.toString()
+            val pass = binding.etSinInPassword.text.toString()
+            if (email.isNotEmpty() && pass.isNotEmpty()) {
 
-        binding?.btnSignIn?.setOnClickListener {
-            userLogin()
-        }
-    }
-
-    private fun userLogin() {
-        val email = binding?.etSinInEmail?.text?.toString()?.trim() ?: ""
-        val password = binding?.etSinInPassword?.text?.toString()?.trim() ?: ""
-
-        if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-
-
-        auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    startActivity(Intent(this, MainActivity::class.java))
-                    finish()
-                } else {
-                    // Log any exceptions to the console
-                    Log.e("SignInActivity", "signInWithEmailAndPassword:failure", task.exception)
-                    Toast.makeText(this, "Authentication failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        val intent = Intent(this, SignInActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                    }
                 }
+            } else {
+                Toast.makeText(this, "Empty fields are not allowed!", Toast.LENGTH_SHORT).show()
             }
+
+        }
     }
 
-
+    override fun onStart() {
+        super.onStart()
+        if (firebaseAuth.currentUser != null) {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+    }
 }
+
+
