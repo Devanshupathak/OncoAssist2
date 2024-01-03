@@ -40,7 +40,7 @@ class SignInActivity : AppCompatActivity() {
         showProgressBar()
 
         auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
+            .addOnCompleteListener(this) { task ->   // error line while login
                 if (task.isSuccessful) {
                     startActivity(Intent(this, MainActivity::class.java))
                     finish()
