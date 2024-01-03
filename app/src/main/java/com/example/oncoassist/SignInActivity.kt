@@ -2,6 +2,7 @@ package com.example.oncoassist
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.oncoassist.ForgetPasswordActivity
@@ -46,15 +47,15 @@ class SignInActivity: AppCompatActivity() {
 
 
         auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->   // error line while login
+            .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     startActivity(Intent(this, MainActivity::class.java))
                     finish()
                 } else {
-                    Toast.makeText(this, "Oops! Something went wrong", Toast.LENGTH_SHORT).show()
+                    // Log any exceptions to the console
+                    Log.e("SignInActivity", "signInWithEmailAndPassword:failure", task.exception)
+                    Toast.makeText(this, "Authentication failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
-
-
             }
     }
 

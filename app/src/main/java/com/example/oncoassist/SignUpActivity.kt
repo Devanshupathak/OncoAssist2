@@ -10,76 +10,45 @@ import com.example.oncoassist.databinding.ActivitySignUpBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import android.util.Log
+import com.google.firebase.auth.FirebaseAuth
 
-data class User(
-    val username: String,
-    val useremail: String,
-    val userpass: String
-)
 
 class SignUpActivity : AppCompatActivity() {
 
-    private lateinit var suser: EditText
-    private lateinit var semail: EditText
-    private lateinit var spassword: EditText
-    private lateinit var sbutton: Button
-    private lateinit var firebase: DatabaseReference
+    private lateinit var binding: ActivitySignUpBinding
+    private lateinit var firebaseAuth: FirebaseAuth
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivitySignUpBinding.inflate(layoutInflater)
+        binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        suser = binding.suser
-        semail = binding.semail
-        spassword = binding.spassword
-        sbutton = binding.sbutton
+        firebaseAuth = FirebaseAuth.getInstance()
 
-        firebase = FirebaseDatabase.getInstance().getReference("user")
+        binding.sbutton.setOnClickListener {
+            val email = binding.semail.text.toString()
+            val pass = binding.spassword.text.toString()
+            val cpass = binding.cpassword.text.toString()
+            if (email.isNotEmpty() && pass.isNotEmpty() && cpass.isNotEmpty()) {
+                if (pass == cpass) {
+                    firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            val intent = Intent(this, SignInActivity::class.java)
+                            startActivity(intent)
+                        } else {
+                            Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                        }
 
-        sbutton.setOnClickListener {
-            saveUserData()
-            Toast.makeText(this, "Sign-up button clicked", Toast.LENGTH_SHORT).show()
+                    }
 
-        }
-    }
+                } else {
+                    Toast.makeText(this, "Password is not matching", Toast.LENGTH_SHORT).show()
+                }
 
-    private fun saveUserData() {
-        Log.d("SignUpActivity", "saveUserData started")
-        val username = suser.text.toString().trim()
-        val useremail = semail.text.toString().trim()
-        val userpass = spassword.text.toString().trim()
-
-        if (username.isEmpty()) {
-            suser.error = "Please enter name"
-            return
-        }
-        if (useremail.isEmpty()) {
-            semail.error = "Please enter email"
-            return
-        }
-        if (userpass.isEmpty()) {
-            spassword.error = "Please enter password"
-            return
-        }
-
-        val userId = firebase.push().key ?: ""
-        val user = User(username, useremail, userpass)
-
-        firebase.child(userId).setValue(user)
-            .addOnSuccessListener {
-                Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_LONG).show()
-                suser.text.clear()
-                semail.text.clear()
-                spassword.text.clear()
-
-                // Start the SignInActivity after successful signup
-                startActivity(Intent(this,MainActivity::class.java))
-                finish()
+            } else {
+                Toast.makeText(this, "Empty fields are not allowed!", Toast.LENGTH_SHORT).show()
             }
-            .addOnFailureListener { err ->
-                Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_LONG).show()
-            }
-
+        }
     }
 }
