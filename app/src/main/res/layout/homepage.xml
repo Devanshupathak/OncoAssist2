@@ -18,7 +18,8 @@
         app:layout_constraintVertical_bias="0.937"
         tools:ignore="MissingConstraints">
 
-        
+
+
 
         <ImageView
             android:id="@+id/imageView"
@@ -265,6 +266,8 @@
         app:layout_constraintVertical_bias="0.022"
         app:srcCompat="@drawable/baseline_doorbell_24" />
 
+
+
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
@@ -286,4 +289,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/skin" />
+
+    <Button
+        android:id="@+id/btnSignOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="664dp"
+        android:layout_marginStart="1dp"
+        android:padding="16dp"
+        android:text="Log-Out"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.745"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="UnknownIdInLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

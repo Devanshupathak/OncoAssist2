@@ -21,6 +21,11 @@ class SignInActivity: AppCompatActivity() {
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.tvForgotPassword.setOnClickListener{
+            val intent = Intent(this,ForgetPasswordActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.tvRegister.setOnClickListener{
             val intent = Intent(this,SignUpActivity::class.java)
             startActivity(intent)
@@ -30,19 +35,18 @@ class SignInActivity: AppCompatActivity() {
             val email = binding.etSinInEmail.text.toString()
             val pass = binding.etSinInPassword.text.toString()
             if (email.isNotEmpty() && pass.isNotEmpty()) {
-
-                firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
-                    if (it.isSuccessful) {
-                        val intent = Intent(this, SignInActivity::class.java)
+                firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener { signInTask ->
+                    if (signInTask.isSuccessful) {
+                        // Navigate to MainActivity after successful sign-in
+                        val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                     } else {
-                        Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Sign-in failed: ${signInTask.exception?.message}", Toast.LENGTH_SHORT).show()
                     }
                 }
             } else {
                 Toast.makeText(this, "Empty fields are not allowed!", Toast.LENGTH_SHORT).show()
             }
-
         }
     }
 
@@ -51,8 +55,7 @@ class SignInActivity: AppCompatActivity() {
         if (firebaseAuth.currentUser != null) {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }
-
-

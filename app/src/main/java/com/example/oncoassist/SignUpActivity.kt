@@ -1,23 +1,16 @@
 package com.example.oncoassist
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.oncoassist.databinding.ActivitySignUpBinding
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
-
 
 class SignUpActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var firebaseAuth: FirebaseAuth
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,26 +19,33 @@ class SignUpActivity : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
+
         binding.sbutton.setOnClickListener {
             val email = binding.semail.text.toString()
             val pass = binding.spassword.text.toString()
             val cpass = binding.cpassword.text.toString()
+
             if (email.isNotEmpty() && pass.isNotEmpty() && cpass.isNotEmpty()) {
                 if (pass == cpass) {
-                    firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
-                        if (it.isSuccessful) {
-                            val intent = Intent(this, SignInActivity::class.java)
-                            startActivity(intent)
-                        } else {
-                            Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                    firebaseAuth.createUserWithEmailAndPassword(email, pass)
+                        .addOnCompleteListener { task ->
+                            if (task.isSuccessful) {
+                                binding.semail.text.clear()
+                                binding.spassword.text.clear()
+                                binding.cpassword.text.clear()
+                                startActivity(Intent(this, SignInActivity::class.java))
+                                finish()
+                            } else {
+                                Toast.makeText(
+                                    this,
+                                    task.exception?.message ?: "Authentication failed",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
                         }
-
-                    }
-
                 } else {
                     Toast.makeText(this, "Password is not matching", Toast.LENGTH_SHORT).show()
                 }
-
             } else {
                 Toast.makeText(this, "Empty fields are not allowed!", Toast.LENGTH_SHORT).show()
             }
