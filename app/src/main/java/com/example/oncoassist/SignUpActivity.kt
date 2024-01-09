@@ -42,6 +42,18 @@ class SignUpActivity : AppCompatActivity() {
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
+                            if(!pass.matches(".*[A-Z].*".toRegex()))
+                            {
+                                Toast.makeText(this, "Must contain 1 uppercase", Toast.LENGTH_SHORT).show()
+                            }
+                            if(!pass.matches(".*[a-z].*".toRegex()))
+                            {
+                                Toast.makeText(this, "Must contain 1 Lowercase", Toast.LENGTH_SHORT).show()
+                            }
+                            if(!pass.matches(".*[@#/$%^+=&].*".toRegex()))
+                            {
+                                Toast.makeText(this, "Must contain 1 [@#/$%^+=&]", Toast.LENGTH_SHORT).show()
+                            }
                         }
                 } else {
                     Toast.makeText(this, "Password is not matching", Toast.LENGTH_SHORT).show()

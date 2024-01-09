@@ -40,12 +40,17 @@ class SignInActivity: AppCompatActivity() {
                         // Navigate to MainActivity after successful sign-in
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
-                    } else {
+                    }
+                    else {
                         Toast.makeText(this, "Sign-in failed: ${signInTask.exception?.message}", Toast.LENGTH_SHORT).show()
                     }
                 }
             } else {
                 Toast.makeText(this, "Empty fields are not allowed!", Toast.LENGTH_SHORT).show()
+            }
+            if(pass.length < 8)
+            {
+                Toast.makeText(this, "Minimum 8 character password required!", Toast.LENGTH_SHORT).show()
             }
         }
     }
