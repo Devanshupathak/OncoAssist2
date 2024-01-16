@@ -10,7 +10,7 @@ class HomeActivity: AppCompatActivity() {
     private lateinit var binding: HomepageBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = HomepageBinding().inflate(layoutInflater)
+        binding = HomepageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.imageView2.setOnClickListener{
