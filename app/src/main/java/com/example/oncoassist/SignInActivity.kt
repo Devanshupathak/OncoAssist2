@@ -5,9 +5,6 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.oncoassist.ForgetPasswordActivity
-import com.example.oncoassist.MainActivity
-import com.example.oncoassist.SignUpActivity
 import com.example.oncoassist.databinding.ActivitySignInBinding
 import com.google.firebase.auth.FirebaseAuth
 
