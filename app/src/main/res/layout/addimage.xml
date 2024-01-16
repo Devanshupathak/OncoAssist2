@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lgrey">
+
+    <android.widget.LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="354dp"
+        android:layout_height="352dp"
+        android:background="@drawable/rect"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.235"
+        tools:ignore="MissingConstraints"></android.widget.LinearLayout>
+
+    <android.widget.LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="272dp"
+        android:layout_height="68dp"
+        android:background="@drawable/rect"
+        android:translationZ="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.72"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_width="127dp"
+            android:layout_height="wrap_content"
+            android:text="Add photo"
+            android:textSize="25sp"
+            android:translationX="28dp"
+            android:translationY="20dp" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="121dp"
+            android:layout_height="58dp"
+            android:layout_weight="1"
+            android:translationY="12dp"
+            app:srcCompat="@drawable/baseline_photo_camera_27" />
+    </android.widget.LinearLayout>
+
+    <android.widget.LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="333dp"
+        android:layout_height="73dp"
+        android:background="@drawable/bottomnav"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.937"
+        tools:ignore="MissingConstraints">
+
+
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="109dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="70dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/baseline_home_filled_24" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="109dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="60dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/baseline_add_circle_24" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="109dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/baseline_supervised_user_circle_24" />
+    </android.widget.LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
