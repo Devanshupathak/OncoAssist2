@@ -3,8 +3,9 @@ package com.example.oncoassist
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.oncoassist.databinding.ActivityHomepageBinding
 import com.example.oncoassist.databinding.ActivityMainBinding
-import com.example.oncoassist.databinding.HomepageBinding
+
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -17,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
-        val homepageBinding = HomepageBinding.inflate(layoutInflater)
+        val homepageBinding = ActivityHomepageBinding.inflate(layoutInflater)
         setContentView(homepageBinding.root)
 
         val signOutButton = homepageBinding.btnSignOut

@@ -38,12 +38,29 @@
             android:name=".MainActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".AddImageActivity"
+            android:exported="false" />
+
 
         <!--        <activity-->
         <!--            android:name=".MainActivity"-->
         <!--            android:exported="true">-->
         <!--        </activity>-->
+        <provider android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.oncoassist.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:ignore="WrongManifestParent">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
 
+        </provider>
     </application>
 
 
