@@ -139,24 +139,19 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             >
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:src="@drawable/g_logo"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
+
+            <Button
+                android:id="@+id/googlesbtn"
+                android:layout_width="360dp"
+                android:layout_height="41dp"
                 android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginEnd="50dp"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="Login with Google"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                />
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/g_logo"
+                app:icon="@drawable/g_logo"
+                android:text="Login with Google"/>
+
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
