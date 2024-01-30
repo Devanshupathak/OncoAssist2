@@ -4,6 +4,16 @@
     <string name="forgot_password_msg">Don\'t worry! it happens. Please enter the email address associated with your account.</string>
     <string name="on_submit_msg">Check out your mailbox, you will receive an email containing link where you can reset your password</string>
     <string name="sign_in">
+        <string name="app_name">Page 1</string>
+	<string name="ek_img_content">ExportKit Image</string>
+	<string name="my_body_string">My body</string>
+	<string name="camera_string">Camera</string>
+	<string name="uv_index_string">UV Index</string>
 Sign In
 </string>
+
+    <string name="ek_img_content">ExportKit Image</string>
+    <string name="my_body_string">My body</string>
+    <string name="camera_string">Camera</string>
+    <string name="uv_index_string">UV Index</string>
 </resources>

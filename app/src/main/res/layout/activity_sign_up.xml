@@ -16,9 +16,10 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="match_parent"
-            android:layout_height="214dp"
-            android:src="@drawable/pic1" />
+            android:layout_width="289dp"
+            android:layout_height="162dp"
+            android:src="@drawable/logo"
+            android:translationX="40sp" />
 
         <EditText
             android:layout_width="300dp"

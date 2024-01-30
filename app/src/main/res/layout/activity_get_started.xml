@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
 
     android:background="#F6F6F6"
-    android:backgroundTint="#F6F6F6"
+    android:backgroundTint="#FFFFFF"
     tools:context=".GetStartedActivity">
 
     <ImageView
@@ -14,10 +14,35 @@
         android:layout_height="302dp"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="264dp"
-        android:background="@drawable/pic1"
+        android:background="@drawable/logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="176dp"
+        android:layout_height="33dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="216dp"
+        android:fontFamily="@font/alice"
+        android:text="SKINVISION"
+        android:textColor="#89B9FD"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="112dp"
+        android:layout_marginBottom="188dp"
+        android:text="Together We care"
+        android:textColor="#008DCD"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

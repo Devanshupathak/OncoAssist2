@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.widget.LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="272dp"
+        android:layout_height="68dp"
+        android:background="@drawable/rect"
+        android:translationZ="12dp"
+        >
+
+        <TextView
+            android:layout_width="127dp"
+            android:layout_height="wrap_content"
+            android:text="Add photo"
+            android:textSize="25sp"
+            android:translationX="28dp"
+            android:translationY="20dp" />
+
+        <ImageButton
+            android:id="@+id/imageView8"
+            android:layout_width="121dp"
+            android:layout_height="58dp"
+            android:layout_weight="1"
+            android:translationY="12dp"
+            android:contentDescription="h"
+            android:src="@drawable/baseline_photo_camera_27" />
+    </android.widget.LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/page_android_small___1_ek1"
+        android:layout_width="410dp"
+        android:layout_height="840dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp">
+
+        <View
+            android:id="@+id/rectangle_1"
+            android:layout_width="wrap_content"
+            android:layout_height="79dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="553dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+
+            android:background="@drawable/nav" />
+
+        <View
+            android:id="@+id/rectangle_3"
+            android:layout_width="69dp"
+            android:layout_height="67dp"
+            android:layout_alignTop="@+id/rectangle_1"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/bubble" />
+
+        <ImageView
+            android:id="@+id/body"
+            android:layout_width="14dp"
+            android:layout_height="35dp"
+            android:layout_alignStart="@+id/rectangle_1"
+            android:layout_alignTop="@+id/rectangle_1"
+            android:layout_alignBottom="@+id/rectangle_1"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="34dp"
+            android:contentDescription="body"
+            android:src="@drawable/_30473_1" />
+
+        <TextView
+            android:id="@+id/my_body"
+            android:layout_width="54dp"
+            android:layout_height="20dp"
+            android:layout_alignStart="@+id/rectangle_1"
+            android:layout_alignTop="@+id/rectangle_1"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="41dp"
+            android:text="@string/my_body_string"
+            android:textColor="@color/my_body_color" />
+
+
+        <TextView
+            android:id="@+id/camera"
+            android:layout_width="54dp"
+            android:layout_height="20dp"
+            android:layout_alignStart="@+id/rectangle_1"
+            android:layout_alignTop="@+id/rectangle_1"
+            android:layout_alignBottom="@+id/rectangle_1"
+            android:layout_marginStart="162dp"
+            android:layout_marginLeft="161dp"
+            android:layout_marginTop="41dp"
+            android:layout_marginBottom="18dp"
+            android:text="@string/camera_string"
+            android:textColor="@color/my_body_color" />
+
+        <ImageButton
+            android:id="@+id/addbtn"
+            android:layout_width="82dp"
+            android:layout_height="49dp"
+            android:layout_alignStart="@+id/rectangle_1"
+            android:layout_alignTop="@+id/rectangle_1"
+            android:layout_alignBottom="@+id/rectangle_1"
+            android:layout_marginStart="147dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="28dp"
+            android:contentDescription="_30473_1"
+            android:src="@drawable/baseline_photo_camera_24" />
+
+        <TextView
+            android:id="@+id/uv_index"
+            android:layout_width="75dp"
+            android:layout_height="19dp"
+            android:layout_alignTop="@+id/rectangle_1"
+            android:layout_alignBottom="@+id/rectangle_1"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="279dp"
+            android:layout_marginTop="41dp"
+            android:layout_marginEnd="38dp"
+            android:layout_marginBottom="19dp"
+            android:text="@string/uv_index_string"
+            android:textColor="@color/my_body_color" />
+
+        <RelativeLayout
+            android:id="@+id/____icon__sun_"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="288dp"
+            android:layout_marginTop="566.22dp">
+
+            <View
+                android:id="@+id/_bg______icon__sun__ek1"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="-288dp"
+                android:layout_marginTop="-566dp"
+                android:background="@drawable/_bg______icon__sun__ek1_shape" />
+
+        </RelativeLayout>
+
+        <android.widget.LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="354dp"
+            android:layout_height="352dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="239dp"
+            android:background="@drawable/rect">
+
+
+            <ImageView
+                android:id="@+id/pic"
+                android:layout_width="410dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                tools:srcCompat="@tools:sample/avatars" />
+        </android.widget.LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

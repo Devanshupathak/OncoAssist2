@@ -19,21 +19,6 @@
         android:layout_marginTop="0dp"
         android:background="@drawable/logshape" />
 
-    <TextView
-        android:id="@+id/sign_in"
-        android:layout_width="127dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="66dp"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center_horizontal|top"
-        android:text="@string/sign_in"
-        android:textAppearance="@style/sign_in"
-        android:textSize="30sp"
-        android:textStyle="bold" />
-
     <android.widget.LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="310dp"
@@ -171,5 +156,19 @@
         android:text=" Register"
         android:textColor="@color/blue_5"
         android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/vector_1"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="170dp"
+        android:layout_marginBottom="433dp"
+        android:fontFamily="@font/alice"
+        android:text="Sign In"
+        android:textColor="#FFFFFF"
+        android:textSize="28sp"
         android:textStyle="bold" />
 </RelativeLayout>

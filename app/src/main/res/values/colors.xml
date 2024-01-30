@@ -14,4 +14,20 @@
     <color name="lgreen">#A7D397</color>
     <color name="card_graph_bg_color">#4A91F2</color>
     <color name="graph_heading_color">#FFFFFF</color>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+
+
+
+    <color name="_bg__android_small___1_ek2_color">#FFFFFF</color>
+    <color name="rectangle_1_color">#F9EEFF</color>
+    <color name="rectangle_3_color">#DEDFFF</color>
+    <color name="my_body_color">#9F71FF</color>
+    <color name="_bg______icon__sun__ek1_color">#000000</color>
 </resources>

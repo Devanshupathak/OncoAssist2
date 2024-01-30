@@ -1,5 +1,6 @@
 package com.example.oncoassist
 
+
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
@@ -16,6 +17,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class SignInActivity: AppCompatActivity() {
     private lateinit var binding: ActivitySignInBinding
@@ -57,7 +61,21 @@ class SignInActivity: AppCompatActivity() {
             if (email.isNotEmpty() && pass.isNotEmpty()) {
                 firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener { signInTask ->
                     if (signInTask.isSuccessful) {
-                        // Navigate to MainActivity after successful sign-in
+                        val currentUser = FirebaseAuth.getInstance().currentUser
+                        if (currentUser != null) {
+                            val uid = currentUser.uid
+                            FirebaseDatabase.getInstance().getReference("user").child(uid)
+                                .addListenerForSingleValueEvent(object : ValueEventListener {
+                                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                                        val user = dataSnapshot.getValue(currentUser::class.java)
+                                            HomeActivity.c = user
+                                    }
+
+                                    override fun onCancelled(databaseError:) {
+                                        // Handle database error
+                                    }
+                                })
+                        }
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                     }

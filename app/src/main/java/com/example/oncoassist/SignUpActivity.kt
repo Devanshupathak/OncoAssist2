@@ -6,11 +6,14 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.oncoassist.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class SignUpActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var dbref:DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,8 +22,10 @@ class SignUpActivity : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-
+        dbref = FirebaseDatabase.getInstance().getReference("user")
         binding.sbutton.setOnClickListener {
+            saveUserdata()
+            val name = binding.suser.text.toString()
             val email = binding.semail.text.toString()
             val pass = binding.spassword.text.toString()
             val cpass = binding.cpassword.text.toString()
@@ -62,5 +67,14 @@ class SignUpActivity : AppCompatActivity() {
                 Toast.makeText(this, "Empty fields are not allowed!", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun saveUserdata() {
+        val name = binding.suser.text.toString()
+        val email = binding.semail.text.toString()
+        val pass = binding.spassword.text.toString()
+        val uid=dbref.push().key!!
+        val user=database.SignIn(uid,name,email, pass)
+        dbref.child(uid).setValue(user)
     }
 }
