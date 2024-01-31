@@ -35,11 +35,12 @@ class HomeActivity : AppCompatActivity() {
         username = findViewById(R.id.username) // Replace R.id.username with the actual ID of your TextView
 
         auth = FirebaseAuth.getInstance()
-        auth.currentUser?.let { user ->
-            uid = user.uid
-            if (uid.isNotEmpty()) {
-                getUserData()
-            }
+        val currentUser = auth.currentUser
+        val displayName = currentUser?.displayName
+        if (displayName != null && displayName.isNotEmpty()) {
+            username.text = "$displayName!"
+        } else {
+            username.text = "User"
         }
 
         val addBtn = findViewById<ImageButton>(R.id.addbtn)
@@ -51,24 +52,6 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    private fun getUserData() {
-        databaseReference = FirebaseDatabase.getInstance().getReference("user")
-        databaseReference.child(uid).addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val signInData = snapshot.getValue(database.SignIn::class.java)
-                if (signInData != null) {
-                    Log.d(TAG, "Username retrieved: ${signInData.name}")
-                    username.text = signInData.name
-                } else {
-                    // Handle the case where signInData is null
-                }
-            }
 
-            override fun onCancelled(error: DatabaseError) {
-                // Handle onCancelled event
-                // For example:
-                Log.e(TAG, "Database error occurred: ${error.message}")
-            }
-        })
     }
-}
+
