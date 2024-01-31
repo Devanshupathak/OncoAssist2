@@ -18,13 +18,16 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class SignInActivity: AppCompatActivity() {
+
     private lateinit var binding: ActivitySignInBinding
     private var firebaseAuth = FirebaseAuth.getInstance()
     private lateinit var googleSignInClient: GoogleSignInClient
+    private  var  currentUser = FirebaseAuth.getInstance().currentUser
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,30 +62,9 @@ class SignInActivity: AppCompatActivity() {
             val email = binding.etSinInEmail.text.toString()
             val pass = binding.etSinInPassword.text.toString()
             if (email.isNotEmpty() && pass.isNotEmpty()) {
-                firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener { signInTask ->
-                    if (signInTask.isSuccessful) {
-                        val currentUser = FirebaseAuth.getInstance().currentUser
-                        if (currentUser != null) {
-                            val uid = currentUser.uid
-                            FirebaseDatabase.getInstance().getReference("user").child(uid)
-                                .addListenerForSingleValueEvent(object : ValueEventListener {
-                                    override fun onDataChange(dataSnapshot: DataSnapshot) {
-                                        val user = dataSnapshot.getValue(currentUser::class.java)
-                                            HomeActivity.c = user
-                                    }
 
-                                    override fun onCancelled(databaseError:) {
-                                        // Handle database error
-                                    }
-                                })
-                        }
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
-                    }
-                    else {
-                        Toast.makeText(this, "Sign-in failed: ${signInTask.exception?.message}", Toast.LENGTH_SHORT).show()
-                    }
-                }
             } else {
                 Toast.makeText(this, "Empty fields are not allowed!", Toast.LENGTH_SHORT).show()
             }
