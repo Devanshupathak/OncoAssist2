@@ -5,38 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.widget.LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="272dp"
-        android:layout_height="68dp"
-        android:background="@drawable/rect"
-        android:translationZ="12dp"
-        >
-
-        <TextView
-            android:layout_width="127dp"
-            android:layout_height="wrap_content"
-            android:text="Add photo"
-            android:textSize="25sp"
-            android:translationX="28dp"
-            android:translationY="20dp" />
-
-        <ImageButton
-            android:id="@+id/imageView8"
-            android:layout_width="121dp"
-            android:layout_height="58dp"
-            android:layout_weight="1"
-            android:translationY="12dp"
-            android:contentDescription="h"
-            android:src="@drawable/baseline_photo_camera_27" />
-    </android.widget.LinearLayout>
-
     <RelativeLayout
         android:id="@+id/page_android_small___1_ek1"
         android:layout_width="410dp"
         android:layout_height="840dp"
+        android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp">
+        android:layout_marginTop="90dp">
 
         <View
             android:id="@+id/rectangle_1"
@@ -161,6 +136,42 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 tools:srcCompat="@tools:sample/avatars" />
+
+        </android.widget.LinearLayout>
+
+        <android.widget.LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="272dp"
+            android:layout_height="68dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="79dp"
+            android:layout_marginBottom="139dp"
+            android:background="@drawable/rect"
+            android:translationZ="12dp"
+            >
+
+            <Button
+                android:id="@+id/btnpic"
+                android:layout_width="121dp"
+                android:layout_height="58dp"
+                android:layout_weight="1"
+                android:contentDescription="h"
+                android:src="@drawable/baseline_photo_camera_27"
+                android:text="Add photo"
+                android:translationY="12dp"
+                app:icon="@drawable/baseline_photo_camera_24" />
+
+            <Button
+                android:id="@+id/btnupload"
+                android:layout_width="121dp"
+                android:layout_height="58dp"
+                android:layout_weight="1"
+                android:contentDescription="h"
+                android:src="@drawable/baseline_photo_camera_27"
+                android:text="Upload "
+                android:translationY="12dp"
+                app:icon="@drawable/baseline_photo_camera_24" />
         </android.widget.LinearLayout>
     </RelativeLayout>
 </RelativeLayout>

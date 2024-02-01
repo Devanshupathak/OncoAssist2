@@ -2,8 +2,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="410dp" android:layout_height="830dp"
-    android:background="#F6F6F6"
-    android:backgroundTint="#F6F6F6"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
     >
 
 
@@ -11,8 +11,8 @@
         <RelativeLayout android:id="@+id/content_container"
             android:layout_width="410dp"
             android:layout_height="830dp"
-            android:background="#F6F6F6"
-            android:backgroundTint="#F6F6F6">
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF">
 
 
             <RelativeLayout
@@ -23,6 +23,70 @@
                 android:layout_marginTop="0dp">
 
 
+                <ImageView
+                    android:id="@+id/square1"
+                    android:layout_width="157dp"
+                    android:layout_height="170dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginTop="553dp"
+                    android:layout_marginEnd="217dp"
+                    android:layout_marginBottom="309dp"
+
+                    android:background="@drawable/square_1" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="288dp"
+                    android:layout_marginBottom="401dp"
+                    android:fontFamily="@font/black_han_sans"
+                    android:text="View"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="267dp"
+                    android:layout_marginBottom="365dp"
+                    android:fontFamily="@font/alike"
+                    android:text="History!!"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/rect1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginTop="553dp"
+                    android:layout_marginEnd="7dp"
+                    android:layout_marginBottom="198dp"
+
+                    android:background="@drawable/rect_9" />
+
+                <View
+                    android:id="@+id/square2"
+                    android:layout_width="157dp"
+                    android:layout_height="170dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginTop="553dp"
+                    android:layout_marginEnd="36dp"
+                    android:layout_marginBottom="311dp"
+
+                    android:background="@drawable/square_1" />
 
                 <View
                     android:id="@+id/rectangle_1"
@@ -36,6 +100,19 @@
                     android:layout_marginBottom="5dp"
 
                     android:background="@drawable/nav" />
+
+                <View
+                    android:id="@+id/square4"
+                    android:layout_width="394dp"
+                    android:layout_height="79dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginTop="553dp"
+                    android:layout_marginEnd="7dp"
+                    android:layout_marginBottom="108dp"
+
+                    android:background="@drawable/rect_9" />
 
                 <View
                     android:id="@+id/rectangle_3"
@@ -151,15 +228,15 @@
 
                 <ImageView
                     android:id="@+id/body2"
-                    android:layout_width="323dp"
-                    android:layout_height="368dp"
+                    android:layout_width="195dp"
+                    android:layout_height="260dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="-34dp"
-                    android:layout_marginTop="245dp"
-                    android:layout_marginEnd="39dp"
+                    android:layout_marginTop="42dp"
+                    android:layout_marginEnd="196dp"
                     android:contentDescription="_30473_2"
-                    android:src="@drawable/_30473_2"
+                    android:src="@drawable/doctor"
                     android:translationY="30dp" />
 
                 <ImageView
@@ -175,8 +252,8 @@
 
                 <Button
                     android:id="@+id/btnSignOut"
-                    android:layout_width="102dp"
-                    android:layout_height="84dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="1dp"
@@ -200,8 +277,12 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginEnd="253dp"
                     android:layout_marginBottom="755dp"
+                    android:fontFamily="@font/chilanka"
                     android:text="Username"
                     android:textSize="20sp" />
+
+
+
             </RelativeLayout>
         </RelativeLayout>
 

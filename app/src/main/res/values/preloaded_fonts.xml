@@ -3,5 +3,9 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/alice</item>
         <item>@font/alike</item>
+        <item>@font/black_han_sans</item>
+        <item>@font/bowlby_one</item>
+        <item>@font/chilanka</item>
+        <item>@font/fondamento</item>
     </array>
 </resources>
