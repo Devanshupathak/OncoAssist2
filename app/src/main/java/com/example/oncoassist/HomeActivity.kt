@@ -4,6 +4,8 @@ import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
@@ -25,6 +27,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var uid: String
     private lateinit var databaseReference: DatabaseReference
     private lateinit var user: User
+    private lateinit var btnedit:Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +36,7 @@ class HomeActivity : AppCompatActivity() {
 
         // Initialize username TextView
         username = findViewById(R.id.username) // Replace R.id.username with the actual ID of your TextView
-
+        btnedit=findViewById(R.id.btnedit)
         auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
         val displayName = currentUser?.displayName
@@ -43,6 +46,7 @@ class HomeActivity : AppCompatActivity() {
             username.text = "User"
         }
 
+
         val addBtn = findViewById<ImageButton>(R.id.addbtn)
         addBtn.setOnClickListener {
             Toast.makeText(this, "Add button clicked", Toast.LENGTH_SHORT).show()
@@ -50,8 +54,18 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this, AdImageActivity::class.java)
             startActivity(intent)
         }
+        btnedit.setOnClickListener { view -> onEditProfileButtonClick(view) }
     }
+    private fun onEditProfileButtonClick(view: View) {
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            val intent = Intent(this, editprofile::class.java)
+            startActivity(intent)
+        } else {
+            Toast.makeText(this, "User is not found", Toast.LENGTH_SHORT).show()
+        }
 
+    }
 
     }
 

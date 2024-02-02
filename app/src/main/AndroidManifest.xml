@@ -52,6 +52,10 @@
             android:name=".AdImageActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".editprofile"
+            android:exported="false" />
+f
 
         <!--        <activity-->
         <!--            android:name=".MainActivity"-->
