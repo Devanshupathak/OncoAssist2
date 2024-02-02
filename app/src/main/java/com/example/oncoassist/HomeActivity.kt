@@ -28,6 +28,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var databaseReference: DatabaseReference
     private lateinit var user: User
     private lateinit var btnedit:Button
+    private lateinit var hisbtn:ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,12 +41,20 @@ class HomeActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
         val displayName = currentUser?.displayName
-        if (displayName != null && displayName.isNotEmpty()) {
-            username.text = "$displayName!"
+        val name = intent.getStringExtra("name")
+        val uid = intent.getStringExtra("uid")
+        Toast.makeText(this, "${uid}", Toast.LENGTH_SHORT).show()
+        if (name != null && name.isNotEmpty()) {
+            username.text = "$name!"
         } else {
             username.text = "User"
         }
 
+        hisbtn= findViewById(R.id.square1)
+        hisbtn.setOnClickListener{
+            val intent= Intent(this,historyActivity::class.java)
+            startActivity(intent)
+        }
 
         val addBtn = findViewById<ImageButton>(R.id.addbtn)
         addBtn.setOnClickListener {

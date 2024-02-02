@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.oncoassist.databinding.UploadimgBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import java.io.ByteArrayOutputStream
@@ -94,7 +95,8 @@ class AdImageActivity : AppCompatActivity() {
     }
 
     private fun uploadImageToFirebaseStorage() {
-        val imagesRef = storageReference.child("images/${auth.currentUser?.uid}/${System.currentTimeMillis()}.jpg")
+        val imagesRef =
+            storageReference.child("images/${auth.currentUser?.uid}/${System.currentTimeMillis()}.jpg")
 
         val bitmap = (pic.drawable as BitmapDrawable).bitmap
         val baos = ByteArrayOutputStream()
@@ -105,9 +107,26 @@ class AdImageActivity : AppCompatActivity() {
         uploadTask.addOnSuccessListener { taskSnapshot ->
             // Image uploaded successfully
             Toast.makeText(this, "Image uploaded successfully", Toast.LENGTH_SHORT).show()
+            val imageUrl = imagesRef.toString()
+            // Update the image URL in the database
+            updateImageUrlInDatabase(imageUrl)
         }.addOnFailureListener { exception ->
             // Handle unsuccessful uploads
-            Toast.makeText(this, "Failed to upload image: ${exception.message}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Failed to upload image: ${exception.message}", Toast.LENGTH_SHORT)
+                .show()
         }
+    }
+
+    private fun updateImageUrlInDatabase(imageUrl: String) {
+        // Get a reference to the database location where you want to store the image URL
+        val currentUser = auth.currentUser
+        Toast.makeText(this, "${currentUser?.uid}", Toast.LENGTH_SHORT).show()
+        val databaseReference = FirebaseDatabase.getInstance().reference
+            .child("user")
+            .child(auth.currentUser?.uid ?: "")
+            .child("images")
+            .push() // Create a new child node under "images" with a unique key
+        // Set the image URL as the value for the new child node
+        databaseReference.setValue(imageUrl)
     }
 }

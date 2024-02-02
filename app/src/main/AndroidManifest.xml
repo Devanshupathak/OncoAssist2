@@ -55,7 +55,10 @@
         <activity
             android:name=".editprofile"
             android:exported="false" />
-f
+
+        <activity
+            android:name=".historyActivity"
+            android:exported="false" />
 
         <!--        <activity-->
         <!--            android:name=".MainActivity"-->

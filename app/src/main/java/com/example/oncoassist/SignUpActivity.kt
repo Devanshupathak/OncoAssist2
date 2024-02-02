@@ -73,8 +73,36 @@ class SignUpActivity : AppCompatActivity() {
         val name = binding.suser.text.toString()
         val email = binding.semail.text.toString()
         val pass = binding.spassword.text.toString()
-        val uid=dbref.push().key!!
-        val user=database.SignIn(uid,name,email, pass)
-        dbref.child(uid).setValue(user)
+
+        if (email.isNotEmpty() && pass.isNotEmpty()) {
+            if (pass == binding.cpassword.text.toString()) {
+                firebaseAuth.createUserWithEmailAndPassword(email, pass)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            val currentUser = firebaseAuth.currentUser
+                            val uid = currentUser?.uid
+                            if (uid != null) {
+                                val user = database.SignIn(uid, name, email, pass)
+                                dbref.child(uid).setValue(user)
+                            }
+                            binding.semail.text.clear()
+                            binding.spassword.text.clear()
+                            binding.cpassword.text.clear()
+                            startActivity(Intent(this, SignInActivity::class.java))
+                            finish()
+                        } else {
+                            Toast.makeText(
+                                this,
+                                task.exception?.message ?: "Authentication failed",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+            } else {
+                Toast.makeText(this, "Password is not matching", Toast.LENGTH_SHORT).show()
+            }
+        } else {
+            Toast.makeText(this, "Empty fields are not allowed!", Toast.LENGTH_SHORT).show()
+        }
     }
 }

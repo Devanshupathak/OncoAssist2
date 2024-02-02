@@ -2,6 +2,7 @@ package com.example.oncoassist
 
 
 import android.app.Activity
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -62,9 +63,22 @@ class SignInActivity: AppCompatActivity() {
             val email = binding.etSinInEmail.text.toString()
             val pass = binding.etSinInPassword.text.toString()
             if (email.isNotEmpty() && pass.isNotEmpty()) {
-
-                        val intent = Intent(this, MainActivity::class.java)
-                        startActivity(intent)
+                firebaseAuth.signInWithEmailAndPassword(email, pass)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithEmail:success")
+                            val user = firebaseAuth.currentUser
+                            if (user != null) {
+                                // User is signed in, start the HomeActivity
+                                val intent = Intent(this, HomeActivity::class.java)
+                                intent.putExtra("name", user.displayName)
+                                intent.putExtra("uid", user.uid)
+                                startActivity(intent)
+                                finish()
+                            }
+                        }
+                    }
             } else {
                 Toast.makeText(this, "Empty fields are not allowed!", Toast.LENGTH_SHORT).show()
             }
@@ -119,4 +133,6 @@ class SignInActivity: AppCompatActivity() {
             }
         }
     }
+
+
 }

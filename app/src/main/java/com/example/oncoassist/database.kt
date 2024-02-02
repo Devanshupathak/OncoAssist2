@@ -5,6 +5,7 @@ class database {
         val uid:String="",
         val name: String = "",
         val email: String = "",
-        val pass: String = ""
+        val pass: String = "" ,
+        val imageUrl: String = ""
     )
 }
