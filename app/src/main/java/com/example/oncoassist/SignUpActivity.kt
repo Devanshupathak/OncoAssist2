@@ -73,6 +73,8 @@ class SignUpActivity : AppCompatActivity() {
         val name = binding.suser.text.toString()
         val email = binding.semail.text.toString()
         val pass = binding.spassword.text.toString()
+        val age = binding.sage.text.toString()
+        val number = binding.number.text.toString()
 
         if (email.isNotEmpty() && pass.isNotEmpty()) {
             if (pass == binding.cpassword.text.toString()) {
@@ -82,10 +84,12 @@ class SignUpActivity : AppCompatActivity() {
                             val currentUser = firebaseAuth.currentUser
                             val uid = currentUser?.uid
                             if (uid != null) {
-                                val user = database.SignIn(uid, name, email, pass)
+                                val user = database.SignIn(uid, name, email, pass,number,age)
                                 dbref.child(uid).setValue(user)
                             }
                             binding.semail.text.clear()
+                            binding.sage.text.clear()
+                            binding.number.text.clear()
                             binding.spassword.text.clear()
                             binding.cpassword.text.clear()
                             startActivity(Intent(this, SignInActivity::class.java))
