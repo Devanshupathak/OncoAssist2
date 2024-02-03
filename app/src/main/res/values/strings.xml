@@ -16,4 +16,5 @@ Sign In
     <string name="my_body_string">My body</string>
     <string name="camera_string">Camera</string>
     <string name="uv_index_string">UV Index</string>
+    <string name="default_web_client_id" />
 </resources>
