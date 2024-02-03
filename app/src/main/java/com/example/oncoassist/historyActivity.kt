@@ -3,6 +3,7 @@ package com.example.oncoassist
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -56,7 +57,8 @@ class historyActivity : AppCompatActivity() {
                         if (imageUrl != null) {
                             // Create a FirebaseStorage instance
                             val storage = FirebaseStorage.getInstance()
-
+                            val imageLayout = LinearLayout(this@historyActivity)
+                            imageLayout.orientation = LinearLayout.VERTICAL
                             // Create a storage reference from the URL
                             val storageRef = storage.getReferenceFromUrl(imageUrl)
 
@@ -69,10 +71,13 @@ class historyActivity : AppCompatActivity() {
                                     Picasso.get()
                                         .load(localFile)
                                         .into(imageView)
-
+                                    val reportButton = Button(this@historyActivity)
+                                    reportButton.text = "Report"
+                                    imageLayout.addView(imageView)
+                                    imageLayout.addView(reportButton)
                                     // Add the ImageView to your layout
                                     val imageContainer = findViewById<LinearLayout>(R.id.imageContainer)
-                                    imageContainer.addView(imageView)
+                                    imageContainer.addView(imageLayout)
                                 }
                                 .addOnFailureListener { e ->
                                     // Handle any errors

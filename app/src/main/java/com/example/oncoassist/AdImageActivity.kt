@@ -30,6 +30,7 @@ class AdImageActivity : AppCompatActivity() {
     private lateinit var storageReference: StorageReference
     private var imageUri: Uri? = null
     private lateinit var auth: FirebaseAuth
+    private lateinit var btnGallery:Button
 
     private val takePictureLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -85,8 +86,33 @@ class AdImageActivity : AppCompatActivity() {
                 Toast.makeText(this, "No image selected", Toast.LENGTH_SHORT).show()
             }
         }
+        btnGallery = findViewById(R.id.btng)
+        btnGallery.setOnClickListener {
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                // Permission is not granted, request the permission
+                requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+            } else {
+                // Permission is already granted, launch the gallery intent
+                val galleryIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                takeGalleryPictureLauncher.launch(galleryIntent)
+            }
+        }
     }
-
+    private val requestPermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+            if (isGranted) {
+                // Permission is granted, launch the gallery intent
+                val galleryIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                takeGalleryPictureLauncher.launch(galleryIntent)
+            } else {
+                // Permission is not granted, handle the scenario where the user denied the permission
+                Toast.makeText(this, "Storage permission denied", Toast.LENGTH_SHORT).show()
+            }
+        }
     private fun getImageUriFromBitmap(bitmap: Bitmap?): Uri? {
         bitmap ?: return null
         val tempUri =
@@ -129,4 +155,15 @@ class AdImageActivity : AppCompatActivity() {
         databaseReference.setValue(imageUrl)
 
     }
+    private val takeGalleryPictureLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val selectedImageUri = result.data?.data
+                if (selectedImageUri != null) {
+                    // Set the selected image URI to the ImageView
+                    pic.setImageURI(selectedImageUri)
+                    imageUri = selectedImageUri
+                }
+            }
+        }
 }
