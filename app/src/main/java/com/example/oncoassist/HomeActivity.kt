@@ -35,6 +35,11 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomepageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.textView10.setOnClickListener{
+            val intent = Intent(this,SkinActivity::class.java)
+            startActivity(intent)
+        }
+
         // Initialize username TextView
         username = findViewById(R.id.username) // Replace R.id.username with the actual ID of your TextView
         btnedit=findViewById(R.id.btnedit)
