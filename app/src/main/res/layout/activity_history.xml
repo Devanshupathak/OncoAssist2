@@ -6,32 +6,21 @@
     android:layout_height="match_parent">
 
 
-    <ImageView
-        android:id="@+id/his1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="269dp"
-        android:layout_marginBottom="503dp"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="217dp"
-        android:layout_marginBottom="432dp"
-        android:text="TextView"
-        android:textSize="22sp" />
-
     <LinearLayout
         android:id="@+id/imageContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:padding="16dp"
-        android:gravity="center_horizontal"/>
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/reportbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="report"
+            android:translationX="90sp" />
+
+    </LinearLayout>
+
 </RelativeLayout>

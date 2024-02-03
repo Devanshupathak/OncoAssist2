@@ -125,8 +125,8 @@ class AdImageActivity : AppCompatActivity() {
             .child("user")
             .child(auth.currentUser?.uid ?: "")
             .child("images")
-            .push() // Create a new child node under "images" with a unique key
-        // Set the image URL as the value for the new child node
+            .push()
         databaseReference.setValue(imageUrl)
+
     }
 }
