@@ -4,12 +4,14 @@ import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.example.oncoassist.databinding.ActivityHistoryBinding
 import com.google.firebase.Firebase
@@ -59,6 +61,7 @@ class historyActivity : AppCompatActivity() {
                             val storage = FirebaseStorage.getInstance()
                             val imageLayout = LinearLayout(this@historyActivity)
                             imageLayout.orientation = LinearLayout.VERTICAL
+                            imageLayout.gravity = Gravity.CENTER
                             // Create a storage reference from the URL
                             val storageRef = storage.getReferenceFromUrl(imageUrl)
 
@@ -68,11 +71,21 @@ class historyActivity : AppCompatActivity() {
                                 .addOnSuccessListener {
                                     // Image downloaded successfully, load it into ImageView with Picasso
                                     val imageView = ImageView(this@historyActivity)
+                                    val layoutParams = LinearLayout.LayoutParams(
+                                        LinearLayout.LayoutParams.MATCH_PARENT,
+                                        LinearLayout.LayoutParams.WRAP_CONTENT
+                                    )
+                                    layoutParams.width = 400 // Set the desired width in pixels
+                                    layoutParams.height = 400
+                                    imageView.layoutParams = layoutParams
+                                    imageView.adjustViewBounds = true
+                                    imageView.scaleType = ImageView.ScaleType.CENTER_CROP
                                     Picasso.get()
                                         .load(localFile)
                                         .into(imageView)
                                     val reportButton = Button(this@historyActivity)
                                     reportButton.text = "Report"
+                                    reportButton.backgroundTintList = ContextCompat.getColorStateList(this@historyActivity, R.color.purple_200)
                                     val imageLayout = LinearLayout(this@historyActivity)
                                     imageLayout.orientation = LinearLayout.VERTICAL
                                     imageLayout.addView(imageView)
