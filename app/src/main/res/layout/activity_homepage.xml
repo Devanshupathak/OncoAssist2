@@ -102,7 +102,7 @@
 
                     android:background="@drawable/nav" />
 
-                <View
+                <ImageButton
                     android:id="@+id/square4"
                     android:layout_width="394dp"
                     android:layout_height="79dp"

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView18"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-33dp"
+        app:srcCompat="@drawable/rect_10" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="101dp"
+        android:layout_marginBottom="750dp"
+        android:text="Benign Tumor"
+        android:textColor="#CC0101"
+        android:textSize="35sp" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="336dp"
+        android:layout_height="406dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="276dp"
+        android:fontFamily="@font/alike"
+        android:text="A non-cancerous (benign) tumour of the skin is a growth or abnormal area on the skin that does not spread (metastasize) to other parts of the body. Non-cancerous tumours are not usually life-threatening. They usually don't need any treatment but may be removed with surgery in some cases."
+        android:textAlignment="viewStart"
+        android:textSize="26sp" />
+</RelativeLayout>

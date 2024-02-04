@@ -31,6 +31,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var btnedit:Button
     private lateinit var hisbtn:ImageButton
     private lateinit var docbtn:ImageButton
+    private lateinit var typebtn:ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,6 +63,11 @@ class HomeActivity : AppCompatActivity() {
                 val intent= Intent(this,Doctor_activity::class.java)
                 startActivity(intent)
             }
+        typebtn=findViewById(R.id.square4)
+        typebtn.setOnClickListener{
+            val intent= Intent(this,TypeActivity::class.java)
+            startActivity(intent)
+        }
         val addBtn = findViewById<ImageButton>(R.id.addbtn)
         addBtn.setOnClickListener {
             Toast.makeText(this, "Add button clicked", Toast.LENGTH_SHORT).show()

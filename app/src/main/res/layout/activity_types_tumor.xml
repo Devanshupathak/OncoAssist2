@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/imageView31"
+        android:layout_width="383dp"
+        android:layout_height="207dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="399dp"
+        app:srcCompat="@drawable/rectangle_10" />
+
+    <ImageButton
+        android:id="@+id/imageView6"
+        android:layout_width="383dp"
+        android:layout_height="207dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="151dp"
+        app:srcCompat="@drawable/rectangle_10" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="233dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="122dp"
+        android:layout_marginBottom="508dp"
+        android:fontFamily="@font/black_han_sans"
+        android:text="Benign Tumor"
+        android:textColor="#9356FF"
+        android:textSize="29sp" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="347dp"
+        android:layout_height="121dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="-5dp"
+        android:layout_marginBottom="584dp"
+        android:text="Types of Tumour"
+        android:textSize="34sp" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="203dp"
+        android:layout_marginBottom="455dp"
+        android:text="Know about it "
+        android:textSize="23sp" />
+
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="54dp"
+        android:layout_height="51dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="140dp"
+        android:layout_marginBottom="450dp"
+        app:srcCompat="@drawable/baseline_keyboard_arrow_right_24" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="260dp"
+        android:layout_height="62dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="97dp"
+        android:layout_marginBottom="263dp"
+        android:fontFamily="@font/black_han_sans"
+        android:text="Malignant Tumor"
+        android:textColor="#9356FF"
+        android:textSize="29sp" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="235dp"
+        android:layout_marginBottom="1099dp"
+        android:text="Types of Tumour"
+        android:textSize="50sp" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="207dp"
+        android:layout_marginBottom="223dp"
+        android:text="Know about it "
+        android:textSize="23sp" />
+
+    <ImageView
+        android:id="@+id/imageView35"
+        android:layout_width="54dp"
+        android:layout_height="51dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="140dp"
+        android:layout_marginBottom="214dp"
+        app:srcCompat="@drawable/baseline_keyboard_arrow_right_24" />
+
+    <ImageButton
+        android:id="@+id/imageView15"
+        android:layout_width="85dp"
+        android:layout_height="100dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="715dp"
+        android:layout_marginBottom="1180dp"
+        app:srcCompat="@drawable/baseline_arrow_back_24" />
+
+</RelativeLayout>

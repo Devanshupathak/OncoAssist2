@@ -62,6 +62,16 @@
         <activity
             android:name=".Doctor_activity"
             android:exported="false" />
+
+        <activity
+            android:name=".TypeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BenignActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MalignantActivity"
+            android:exported="false" />
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.oncoassist.fileProvider"

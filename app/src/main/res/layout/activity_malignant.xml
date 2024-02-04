@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView18"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-33dp"
+        app:srcCompat="@drawable/rect_10" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="743dp"
+        android:text="Malignant Tumor"
+        android:textColor="#CC0101"
+        android:textSize="35sp" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="336dp"
+        android:layout_height="406dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="253dp"
+        android:fontFamily="@font/alike"
+        android:text="Malignant skin tumors are usually irregular, solitary, and rapidly growing plaques or nodules that can ulcerate. They can develop de novo, or from a pre-existing benign tumor. Some tumors may metastasize."
+        android:textAlignment="viewStart"
+        android:textSize="26sp" />
+</RelativeLayout>
