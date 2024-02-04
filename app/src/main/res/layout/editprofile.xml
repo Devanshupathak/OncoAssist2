@@ -7,48 +7,15 @@
     android:layout_height="match_parent"
     tools:context=".editprofile">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text"
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextDisplayName"
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Display Name"
-            android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/emailLayout"
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_below="@id/text">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextEmail"
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:inputType="textEmailAddress" />
-
-    </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonSave"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/emailLayout"
+        android:layout_width="370dp"
+        android:layout_height="57dp"
+
         android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="159dp"
+        android:layout_marginTop="273dp"
         android:layout_marginBottom="401dp"
         android:background="@color/blue_2"
         android:text="Save"
@@ -64,5 +31,53 @@
         android:layout_marginEnd="11dp"
         android:layout_marginBottom="3dp"
         app:srcCompat="@drawable/edit1" />
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="303dp"
+        android:layout_height="55dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="581dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Email" />
+
+    <EditText
+        android:id="@+id/agedit"
+        android:layout_width="303dp"
+        android:layout_height="55dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="523dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Age" />
+
+    <EditText
+        android:id="@+id/num"
+        android:layout_width="303dp"
+        android:layout_height="55dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="470dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Contact number" />
+
+    <EditText
+        android:id="@+id/ename"
+        android:layout_width="303dp"
+        android:layout_height="55dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="69dp"
+        android:layout_marginBottom="642dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Name" />
 
 </RelativeLayout>

@@ -30,14 +30,17 @@
             android:text="predict"
         android:id="@+id/predictBtn"/>
     </LinearLayout>
+
     <TextView
+        android:id="@+id/resView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/resView"
+        android:layout_below="@+id/linLayout"
+        android:layout_marginTop="512dp"
         android:text="prediction"
         android:textSize="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_below="@+id/linLayout"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="160dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
