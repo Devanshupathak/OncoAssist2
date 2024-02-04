@@ -2,6 +2,7 @@ package com.example.oncoassist
 
 import android.content.ContentValues.TAG
 import android.content.Intent
+import android.media.Image
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -29,16 +30,12 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var user: User
     private lateinit var btnedit:Button
     private lateinit var hisbtn:ImageButton
+    private lateinit var docbtn:ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomepageBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        binding.textView10.setOnClickListener{
-            val intent = Intent(this,SkinActivity::class.java)
-            startActivity(intent)
-        }
 
         // Initialize username TextView
         username = findViewById(R.id.username) // Replace R.id.username with the actual ID of your TextView
@@ -60,7 +57,11 @@ class HomeActivity : AppCompatActivity() {
             val intent= Intent(this,historyActivity::class.java)
             startActivity(intent)
         }
-
+        docbtn=findViewById(R.id.square2)
+        docbtn.setOnClickListener{
+                val intent= Intent(this,Doctor_activity::class.java)
+                startActivity(intent)
+            }
         val addBtn = findViewById<ImageButton>(R.id.addbtn)
         addBtn.setOnClickListener {
             Toast.makeText(this, "Add button clicked", Toast.LENGTH_SHORT).show()

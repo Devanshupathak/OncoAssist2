@@ -46,6 +46,7 @@
                     android:layout_marginBottom="401dp"
                     android:fontFamily="@font/black_han_sans"
                     android:text="View"
+                    android:textColor="#9B88FD"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -58,7 +59,7 @@
                     android:layout_marginEnd="267dp"
                     android:layout_marginBottom="365dp"
                     android:fontFamily="@font/alike"
-                    android:text="History!!"
+                    android:text="Reports!!"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -75,7 +76,7 @@
 
                     android:background="@drawable/rect_9" />
 
-                <View
+                <ImageButton
                     android:id="@+id/square2"
                     android:layout_width="157dp"
                     android:layout_height="170dp"
@@ -300,10 +301,55 @@
                     android:textSize="20sp" />
 
                 <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="77dp"
+                    android:layout_marginBottom="403dp"
+                    android:fontFamily="@font/black_han_sans"
+                    android:text="About "
+                    android:textColor="#9A87FC"
+                    android:textSize="20sp" />
+
+                <TextView
                     android:id="@+id/textView10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="skin cancer detection" />
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="81dp"
+                    android:layout_marginBottom="368dp"
+                    android:fontFamily="@font/alike"
+                    android:text="Doctors"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="333dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="27dp"
+                    android:layout_marginBottom="225dp"
+                    android:fontFamily="@font/black_han_sans"
+                    android:text="Know your treatment"
+                    android:textColor="#9986FB"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="321dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="37dp"
+                    android:layout_marginBottom="141dp"
+                    android:fontFamily="@font/black_han_sans"
+                    android:text="Types of skin cancer"
+                    android:textColor="#9B88FD"
+                    android:textSize="18sp" />
 
 
             </RelativeLayout>

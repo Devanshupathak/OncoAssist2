@@ -98,7 +98,7 @@ class ReportActivity : AppCompatActivity() {
 
                                             // Simulate displaying the result
                                             val predictedLabel = labels[maxIdx] // Get the predicted label
-                                            reView.text = "Predicted Label: $predictedLabel"
+                                            reView.text = "$predictedLabel"
 
                                             // Close the model (replace this with actual model closing logic)
                                             model.close()

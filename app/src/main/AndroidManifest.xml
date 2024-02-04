@@ -58,6 +58,10 @@
         <activity
             android:name=".ReportActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".Doctor_activity"
+            android:exported="false" />
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.oncoassist.fileProvider"
