@@ -35,7 +35,7 @@
         android:fontFamily="@font/black_han_sans"
         android:text="Benign Tumor"
         android:textColor="#9356FF"
-        android:textSize="29sp" />
+        android:textSize="26sp" />
 
     <TextView
         android:id="@+id/textView24"
@@ -43,10 +43,10 @@
         android:layout_height="121dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="-5dp"
-        android:layout_marginBottom="584dp"
+        android:layout_marginEnd="-24dp"
+        android:layout_marginBottom="581dp"
         android:text="Types of Tumour"
-        android:textSize="34sp" />
+        android:textSize="29sp" />
 
     <TextView
         android:id="@+id/textView25"
@@ -76,12 +76,12 @@
         android:layout_height="62dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="97dp"
-        android:layout_marginBottom="263dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="237dp"
         android:fontFamily="@font/black_han_sans"
         android:text="Malignant Tumor"
         android:textColor="#9356FF"
-        android:textSize="29sp" />
+        android:textSize="26sp" />
 
     <TextView
         android:id="@+id/textView33"
