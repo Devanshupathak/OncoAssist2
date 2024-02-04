@@ -24,6 +24,7 @@ class SkinActivity : AppCompatActivity() {
     lateinit var imageView: ImageView
     lateinit var bitmap: Bitmap
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_skin)
 
@@ -47,28 +48,27 @@ class SkinActivity : AppCompatActivity() {
         }
 
         predBtn.setOnClickListener {
+            // Simulate loading an image (replace this with actual image loading logic)
             var tensorImage = TensorImage(DataType.UINT8)
             tensorImage.load(bitmap)
 
-            tensorImage= imageProcessor.process(tensorImage)
+            // Simulate image processing (replace this with actual image processing logic)
+            tensorImage = imageProcessor.process(tensorImage)
 
+            // Simulate model inference
             val model = Model.newInstance(this)
 
-            val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 224, 224, 3), DataType.FLOAT32)
-            inputFeature0.loadBuffer(tensorImage.buffer)
+            // Create a dummy output array for testing
+            val outputFeature0 =
+                FloatArray(2) { Math.random().toFloat() } // 7 is the number of classes
 
-            val outputs = model.process(inputFeature0)
-            val outputFeature0 = outputs.outputFeature0AsTensorBuffer.floatArray
+            // Find the index with the maximum value in the dummy output array
+            var maxIdx = outputFeature0.indices.maxByOrNull { outputFeature0[it] } ?: 0
 
-            var maxIdx = 0
+            // Simulate displaying the result
+            resView.setText("Test Label: ${labels[maxIdx]}")
 
-            outputFeature0.forEachIndexed{ index, fl ->
-                if(outputFeature0[maxIdx] < fl){
-                    maxIdx = index
-                }
-            }
-                    resView.setText(labels[maxIdx])
-
+            // Close the model (replace this with actual model closing logic)
             model.close()
         }
     }
