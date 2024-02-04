@@ -10,14 +10,14 @@
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:background="#000"
-        android:id="@+id/imageView"
+        android:id="@+id/imageView10"
         tools:ignore="MissingConstraints" />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/linLayout"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/imageView"
+        android:layout_below="@+id/imageView10"
         tools:ignore="MissingConstraints">
         <Button
             android:layout_width="wrap_content"

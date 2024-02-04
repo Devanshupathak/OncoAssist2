@@ -10,13 +10,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.example.oncoassist.ml.Model
-import com.google.android.gms.common.util.WorkSourceUtil.add
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.image.ImageProcessor
 import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.support.image.ops.ResizeOp
-import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
-import android.util.Log
 
 
 class SkinActivity : AppCompatActivity() {
@@ -33,7 +30,7 @@ class SkinActivity : AppCompatActivity() {
         selectBtn = findViewById(R.id.selectBtn)
         predBtn = findViewById(R.id.predictBtn)
         resView = findViewById(R.id.resView)
-        imageView = findViewById(R.id.imageView)
+        imageView = findViewById(R.id.imageView10)
 
         var labels = application.assets.open("labels.txt").bufferedReader().readLines()
 
