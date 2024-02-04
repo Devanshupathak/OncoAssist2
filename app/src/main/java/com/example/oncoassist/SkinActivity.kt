@@ -56,40 +56,33 @@ class SkinActivity : AppCompatActivity() {
             return
         }
         predBtn.setOnClickListener {
-            if (::bitmap.isInitialized) {
-                try {
-                    var tensorImage = TensorImage(DataType.UINT8)
-                    tensorImage.load(bitmap)
+            // Simulate loading an image (replace this with actual image loading logic)
+            var tensorImage = TensorImage(DataType.UINT8)
+            tensorImage.load(bitmap)
 
-                    tensorImage = imageProcessor.process(tensorImage)
-                    Toast.makeText(this, "Image processed successfully", Toast.LENGTH_SHORT).show()
+            // Simulate image processing (replace this with actual image processing logic)
+            tensorImage = imageProcessor.process(tensorImage)
 
-                    val inputFeature0 =
-                        TensorBuffer.createFixedSize(intArrayOf(1, 224, 224, 3), DataType.FLOAT32)
-                    inputFeature0.loadBuffer(tensorImage.buffer)
-                    Toast.makeText(this, "inputfeature run successfully", Toast.LENGTH_SHORT).show()
+            // Simulate model inference
+            val model = Model.newInstance(this)
 
-                    // Perform inference
-                    Toast.makeText(this, "Performing inference...", Toast.LENGTH_SHORT).show()
-                    val outputs = model.process(inputFeature0)
-                    Toast.makeText(this, "Inference completed", Toast.LENGTH_SHORT).show()
+            // Create a dummy output array for testing
+            val outputFeature0 =
+                FloatArray(2) { Math.random().toFloat() } // 7 is the number of classes
 
-                    // Process the output
-                    val outputFeature0 = outputs.outputFeature0AsTensorBuffer.floatArray
-                    var maxIdx = outputFeature0.indices.maxByOrNull { outputFeature0[it] } ?: 0
-                    // ... (prediction logic)
+            // Find the index with the maximum value in the dummy output array
+            var maxIdx = outputFeature0.indices.maxByOrNull { outputFeature0[it] } ?: 0
 
-                    val predictionResult = labels[maxIdx]
-                    resView.text = predictionResult
-                    Toast.makeText(this, "Prediction: $predictionResult", Toast.LENGTH_SHORT).show()
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                    Toast.makeText(this, "Prediction failed: ${e.message}", Toast.LENGTH_SHORT).show()
-                }
-            }
+            // Simulate displaying the result
+            resView.setText("Test Label: ${labels[maxIdx]}")
+
+            // Close the model (replace this with actual model closing logic)
+            model.close()
         }
-
     }
+
+
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
