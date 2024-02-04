@@ -1,6 +1,7 @@
 package com.example.oncoassist
 
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -11,7 +12,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.oncoassist.databinding.ActivityHistoryBinding
-import com.example.oncoassist.databinding.ActivityHomepageBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -73,11 +73,19 @@ class historyActivity : AppCompatActivity() {
                                         .into(imageView)
                                     val reportButton = Button(this@historyActivity)
                                     reportButton.text = "Report"
+                                    val imageLayout = LinearLayout(this@historyActivity)
+                                    imageLayout.orientation = LinearLayout.VERTICAL
                                     imageLayout.addView(imageView)
                                     imageLayout.addView(reportButton)
                                     // Add the ImageView to your layout
                                     val imageContainer = findViewById<LinearLayout>(R.id.imageContainer)
                                     imageContainer.addView(imageLayout)
+                                    reportButton.setOnClickListener {
+                                        // Start the new activity here
+                                        val intent = Intent(this@historyActivity, ReportActivity::class.java)
+                                        intent.putExtra("imageUrl", imageUrl)
+                                        startActivity(intent)
+                                    }
                                 }
                                 .addOnFailureListener { e ->
                                     // Handle any errors

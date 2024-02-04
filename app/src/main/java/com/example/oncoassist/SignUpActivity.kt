@@ -24,42 +24,15 @@ class SignUpActivity : AppCompatActivity() {
 
         dbref = FirebaseDatabase.getInstance().getReference("user")
         binding.sbutton.setOnClickListener {
-            saveUserdata()
             val name = binding.suser.text.toString()
             val email = binding.semail.text.toString()
             val pass = binding.spassword.text.toString()
             val cpass = binding.cpassword.text.toString()
+            val age = binding.sage.text.toString()
 
-            if (email.isNotEmpty() && pass.isNotEmpty() && cpass.isNotEmpty()) {
+            if (email.isNotEmpty() && pass.isNotEmpty() && cpass.isNotEmpty() && age.isNotEmpty()) {
                 if (pass == cpass) {
-                    firebaseAuth.createUserWithEmailAndPassword(email, pass)
-                        .addOnCompleteListener { task ->
-                            if (task.isSuccessful) {
-                                binding.semail.text.clear()
-                                binding.spassword.text.clear()
-                                binding.cpassword.text.clear()
-                                startActivity(Intent(this, SignInActivity::class.java))
-                                finish()
-                            } else {
-                                Toast.makeText(
-                                    this,
-                                    task.exception?.message ?: "Authentication failed",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
-                            if(!pass.matches(".*[A-Z].*".toRegex()))
-                            {
-                                Toast.makeText(this, "Must contain 1 uppercase", Toast.LENGTH_SHORT).show()
-                            }
-                            if(!pass.matches(".*[a-z].*".toRegex()))
-                            {
-                                Toast.makeText(this, "Must contain 1 Lowercase", Toast.LENGTH_SHORT).show()
-                            }
-                            if(!pass.matches(".*[@#/$%^+=&].*".toRegex()))
-                            {
-                                Toast.makeText(this, "Must contain 1 [@#/$%^+=&]", Toast.LENGTH_SHORT).show()
-                            }
-                        }
+                    saveUserdata(name, email, pass, age)
                 } else {
                     Toast.makeText(this, "Password is not matching", Toast.LENGTH_SHORT).show()
                 }
@@ -69,22 +42,21 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    private fun saveUserdata() {
-        val name = binding.suser.text.toString()
-        val email = binding.semail.text.toString()
-        val pass = binding.spassword.text.toString()
-        val age = binding.sage.text.toString()
+    private fun saveUserdata(name: String, email: String, pass: String, age: String) {
         val number = binding.number.text.toString()
 
-        if (email.isNotEmpty() && pass.isNotEmpty()) {
-            if (pass == binding.cpassword.text.toString()) {
+        if (pass.isNotEmpty()) {
+            // Validate password strength here
+            if (pass.matches(".*[A-Z].*".toRegex()) &&
+                pass.matches(".*[a-z].*".toRegex()) &&
+                pass.matches(".*[@#/$%^+=&].*".toRegex())) {
                 firebaseAuth.createUserWithEmailAndPassword(email, pass)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             val currentUser = firebaseAuth.currentUser
                             val uid = currentUser?.uid
                             if (uid != null) {
-                                val user = database.SignIn(uid, name, email, pass,number,age)
+                                val user = database.SignIn(uid, name, age, number, email, pass)
                                 dbref.child(uid).setValue(user)
                             }
                             binding.semail.text.clear()
@@ -103,7 +75,7 @@ class SignUpActivity : AppCompatActivity() {
                         }
                     }
             } else {
-                Toast.makeText(this, "Password is not matching", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Password must contain at least 1 uppercase, 1 lowercase, and 1 special character", Toast.LENGTH_SHORT).show()
             }
         } else {
             Toast.makeText(this, "Empty fields are not allowed!", Toast.LENGTH_SHORT).show()

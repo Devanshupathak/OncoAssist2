@@ -94,6 +94,21 @@
             android:contentDescription="_30473_1"
             android:src="@drawable/baseline_camera_alt_24" />
 
+        <Button
+            android:id="@+id/selectBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="560dp"
+            android:text="select image" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="predict"
+            android:id="@+id/predictBtn"/>
         <TextView
             android:id="@+id/uv_index"
             android:layout_width="75dp"

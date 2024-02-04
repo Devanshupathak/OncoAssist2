@@ -8,13 +8,13 @@ import android.provider.MediaStore
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.example.oncoassist.ml.Model
-import com.google.android.gms.common.util.WorkSourceUtil.add
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.image.ImageProcessor
 import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.support.image.ops.ResizeOp
-import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
+
 
 class SkinActivity : AppCompatActivity() {
 
@@ -31,22 +31,28 @@ class SkinActivity : AppCompatActivity() {
         selectBtn = findViewById(R.id.selectBtn)
         predBtn = findViewById(R.id.predictBtn)
         resView = findViewById(R.id.resView)
-        imageView=findViewById(R.id.imageView)
+        imageView = findViewById(R.id.imageView10)
 
         var labels = application.assets.open("labels.txt").bufferedReader().readLines()
 
         // image processor
         var imageProcessor = ImageProcessor.Builder()
-            .add(ResizeOp(224,224, ResizeOp.ResizeMethod.BILINEAR))
+            .add(ResizeOp(224, 224, ResizeOp.ResizeMethod.BILINEAR))
             .build()
 
         selectBtn.setOnClickListener {
             var intent = Intent()
             intent.setAction(Intent.ACTION_GET_CONTENT)
             intent.setType("image/*")
-            startActivityForResult(intent,  100)
+            startActivityForResult(intent, 100)
         }
-
+        val model: Model = try {
+            Model.newInstance(this)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Toast.makeText(this, "Failed to load model", Toast.LENGTH_SHORT).show()
+            return
+        }
         predBtn.setOnClickListener {
             // Simulate loading an image (replace this with actual image loading logic)
             var tensorImage = TensorImage(DataType.UINT8)
@@ -73,14 +79,16 @@ class SkinActivity : AppCompatActivity() {
         }
     }
 
+
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         if(requestCode == 100){
-        var uri= data?.data
-        bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, uri)
-        imageView.setImageBitmap(bitmap)
-       }
+            var uri= data?.data
+            bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, uri)
+            imageView.setImageBitmap(bitmap)
+        }
     }
 
 }
